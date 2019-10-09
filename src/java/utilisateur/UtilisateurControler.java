@@ -15,10 +15,10 @@ public class UtilisateurControler {
     
     public boolean isExist(String login, String mdp){
         boolean exist = false;
-        for (Utilisateur u: tous()){
-            if (u.getLogin().equals(login) && u.getMdp().equals(mdp)){
-                exist = true;
-            }
+        Utilisateur u = new Utilisateur(login, mdp);
+        List<Utilisateur> list = dao.find(u);
+        if (!list.isEmpty()){
+            exist = true;
         }
         return exist;
     }

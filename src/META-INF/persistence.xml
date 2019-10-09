@@ -3,7 +3,7 @@
 
     <persistence-unit name="NewPersistenceUnit">
         <provider>oracle.toplink.essentials.PersistenceProvider</provider>
-        <class>java.Musique</class>
+        <class>java.musique.Musique</class>
         <class>java.utilisateur.Utilisateur</class>
         <properties>
             <property name="toplink.jdbc.url" value="jdbc:oracle:thin:@localhost:1521:JEE"/>

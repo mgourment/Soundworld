@@ -1,4 +1,4 @@
-package java;
+package java.musique;
 
 import javax.persistence.Basic;
 import javax.persistence.Column;

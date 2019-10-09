@@ -11,6 +11,22 @@ public class Utilisateur {
     private String login;
     private String mdp;
 
+    public Utilisateur(long id, String nom, String prenom, String login, String mdp){
+        this.id = id;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.login = login;
+        this.mdp = mdp;
+    }
+
+    public Utilisateur(String login, String mdp){
+        this.login = login;
+        this.mdp = mdp;
+        this.id = 0;
+        this.nom = "inconnu";
+        this.prenom = "inconnu";
+    }
+
     @Id
     @Column(name = "ID")
     public long getId() {
