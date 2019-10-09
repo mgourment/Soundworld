@@ -7,5 +7,18 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
    <f:view>
       <h:outputLabel value="Hello, world"/>
+
+      <h:form>
+         Login:
+         <h:inputText id="login" value="#{login}"/>
+         <br/>
+
+         Password:
+         <h:inputSecret id="password" value="#{mdp}"/>
+         <br/><br/>
+
+         <h:commandButton action="#{utilisateurControler.isExist(login, mdp)}" value="connexion"/>
+      </h:form>
+
    </f:view>
 </html>
