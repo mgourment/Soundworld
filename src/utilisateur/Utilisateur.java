@@ -1,6 +1,7 @@
 package utilisateur;
 
 import javax.enterprise.context.SessionScoped;
+import javax.inject.Named;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;

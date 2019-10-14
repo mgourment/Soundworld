@@ -1,34 +1,43 @@
 package utilisateur;
 
 import javax.ejb.EJB;
+import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
+import java.io.Serializable;
 import java.util.List;
 
 @Named
-public class UtilisateurControler {
+@SessionScoped
+public class UtilisateurControler implements Serializable{
     @EJB
-    private UtilisateurDAO dao;
-    private Utilisateur utilisateur;
+    UtilisateurDAO dao;
+    private Utilisateur utilisateur = new Utilisateur();
 
     public List<Utilisateur> tous(){
         return dao.findAll();
     }
     
-    public String isExist(String login, String mdp){
-        if(login != null || mdp != null) {
+    public String isExist(){
+        if(utilisateur.getLogin().length() != 0 && utilisateur.getMdp().length() != 0) {
             boolean exist = false;
-            Utilisateur u = new Utilisateur(login, mdp);
-            List<Utilisateur> list = dao.find(u);
-            if (!list.isEmpty()) {
-                exist = true;
-            }
-
-            if (exist) {
-                utilisateur = list.get(0);
-                return utilisateur.getNom();
-            }
+            Utilisateur U= dao.find(utilisateur);
+//            if (U != null) {
+//                exist = true;
+//            }
+//
+//            if (exist) {
+//                utilisateur = U;
+//            }
+            return "pageUtilisateur";
         }
         return "index";
     }
-        
+
+    public Utilisateur getUtilisateur() {
+        return utilisateur;
+    }
+
+    public void setUtilisateur(Utilisateur utilisateur) {
+        this.utilisateur = utilisateur;
+    }
 }

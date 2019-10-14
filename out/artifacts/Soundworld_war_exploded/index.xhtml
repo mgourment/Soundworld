@@ -10,14 +10,15 @@
 
       <h:form>
          Login:
-         <h:inputText id="login" value="#{login}"/>
+         <h:inputText id="login" value="#{utilisateurControler.utilisateur.login}"/>
          <br/>
 
          Password:
-         <h:inputSecret id="password" value="#{mdp}"/>
+         <h:inputSecret id="password" value="#{utilisateurControler.utilisateur.mdp}"/>
          <br/><br/>
 
-         <h:commandButton value="connexion" action="#{utilisateurControler.isExist(login,mdp)}" />
+         <h:commandButton value="connexion" action="#{utilisateurControler.isExist()}" />
+
 
       </h:form>
 

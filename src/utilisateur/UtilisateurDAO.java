@@ -16,10 +16,10 @@ public class UtilisateurDAO {
         return requete.getResultList();
     }
 
-    public List<Utilisateur> find(Utilisateur u){
+    public Utilisateur find(Utilisateur u){
         EntityManagerFactory f = Persistence.createEntityManagerFactory("NewPersistenceUnit");
         EntityManager em = f.createEntityManager();
         Query requete = em.createQuery("select p from Utilisateur p where p.login ='"+ u.getLogin() +"' and p.mdp = '"+ u.getMdp()+"'");
-        return requete.getResultList();
+        return (Utilisateur) requete.getSingleResult();
     }
 }
