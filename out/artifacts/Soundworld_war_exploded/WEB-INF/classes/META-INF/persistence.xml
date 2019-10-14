@@ -3,8 +3,10 @@
 
     <persistence-unit name="NewPersistenceUnit">
         <provider>oracle.toplink.essentials.PersistenceProvider</provider>
-        <class>java.musique.Musique</class>
-        <class>java.utilisateur.Utilisateur</class>
+        <class>musique.Musique</class>
+
+        <class>utilisateur.Utilisateur</class>
+
         <properties>
             <property name="toplink.jdbc.url" value="jdbc:oracle:thin:@localhost:1521:JEE"/>
             <property name="toplink.jdbc.driver" value="oracle.jdbc.OracleDriver"/>

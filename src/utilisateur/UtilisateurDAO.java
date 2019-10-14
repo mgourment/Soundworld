@@ -1,4 +1,4 @@
-package java.utilisateur;
+package utilisateur;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;

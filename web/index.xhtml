@@ -17,7 +17,8 @@
          <h:inputSecret id="password" value="#{mdp}"/>
          <br/><br/>
 
-         <h:commandButton value="connexion"/>
+         <h:commandButton value="connexion" action="#{utilisateurControler.isExist(login,mdp)}" />
+
       </h:form>
 
    </f:view>

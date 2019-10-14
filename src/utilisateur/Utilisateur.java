@@ -1,10 +1,13 @@
-package java.utilisateur;
+package utilisateur;
 
+import javax.enterprise.context.SessionScoped;
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
-public class Utilisateur {
+@SessionScoped
+public class Utilisateur implements Serializable {
     private long id;
     private String nom;
     private String prenom;
@@ -25,6 +28,10 @@ public class Utilisateur {
         this.id = 0;
         this.nom = "inconnu";
         this.prenom = "inconnu";
+    }
+
+    public Utilisateur() {
+
     }
 
     @Id
