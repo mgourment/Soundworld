@@ -9,5 +9,10 @@
     <f:view>
         <h:outputLabel value="Hello,#{utilisateurControler.utilisateur.nom}"/>
 
+        <h:dataTable value="#{musiqueControler.tous()}" var="ligne">
+            <h:column>#{ligne.idM} #{ligne.titre} #{ligne.artiste} #{ligne.duree} </h:column>
+        </h:dataTable>
+
+
     </f:view>
 </html>

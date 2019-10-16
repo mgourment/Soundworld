@@ -12,11 +12,16 @@ public class Musique {
     private String titre;
     private String artiste;
     private Long duree;
+    private String visible;
 
     @Id
     @Column(name = "ID_M")
     public long getIdM() {
         return idM;
+    }
+
+    public void setIdM(Long idM) {
+        this.idM = idM;
     }
 
     public void setIdM(long idM) {
@@ -67,5 +72,15 @@ public class Musique {
     @Override
     public int hashCode() {
         return Objects.hash(idM, titre, artiste, duree);
+    }
+
+    @Basic
+    @Column(name = "VISIBLE")
+    public String getVisible() {
+        return visible;
+    }
+
+    public void setVisible(String visible) {
+        this.visible = visible;
     }
 }
