@@ -12,7 +12,6 @@ import java.util.List;
 public class MusiqueControler implements Serializable {
     @EJB
     MusiqueDAO dao;
-    private Musique musique = new Musique();
 
     public List<Musique> tous(){
         return dao.findAll();
