@@ -1,12 +1,17 @@
 package utilisateur;
 
+import musique.Musique;
+import sun.rmi.log.LogInputStream;
+
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
+@Table(name = "utilisateur")
 @SessionScoped
 public class Utilisateur implements Serializable {
     private long id;
@@ -14,6 +19,9 @@ public class Utilisateur implements Serializable {
     private String prenom;
     private String login;
     private String mdp;
+
+    @OneToMany(mappedBy = "utilisateur")
+    private List<Musique> musiqueList;
 
     public Utilisateur(long id, String nom, String prenom, String login, String mdp){
         this.id = id;
@@ -32,7 +40,11 @@ public class Utilisateur implements Serializable {
     }
 
     public Utilisateur() {
-
+        this.login = "";
+        this.mdp = "";
+        this.id = 0;
+        this.nom = "inconnu";
+        this.prenom = "inconnu";
     }
 
     @Id

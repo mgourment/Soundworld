@@ -1,17 +1,24 @@
 package musique;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import utilisateur.Utilisateur;
+
+import javax.enterprise.context.SessionScoped;
+import javax.persistence.*;
+import java.io.Serializable;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
-public class Musique {
+@Table(name = "musique")
+public class Musique{
     private long idM;
     private String titre;
     private String artiste;
     private Long duree;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_m")
+    private Utilisateur utilisateur;
 
     @Id
     @Column(name = "ID_M")
@@ -68,4 +75,6 @@ public class Musique {
     public int hashCode() {
         return Objects.hash(idM, titre, artiste, duree);
     }
+
+
 }

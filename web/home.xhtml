@@ -9,5 +9,12 @@
     <f:view>
         <h:outputLabel value="Hello,#{utilisateurControler.utilisateur.nom}"/>
 
+        <h:dataTable value="#{musiqueProprietaire}" var="musique">
+            <h:column>
+                #{musique.titre}
+            </h:column>
+
+        </h:dataTable>
+
     </f:view>
 </html>
