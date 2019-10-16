@@ -7,17 +7,29 @@ import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 @Entity
 @Table(name = "utilisateur")
-@SessionScoped
 public class Utilisateur implements Serializable {
+    @Id
+    @Column(name = "ID")
     private long id;
+
+    @Basic
+    @Column(name = "NOM")
     private String nom;
+
+    @Basic
+    @Column(name = "PRENOM")
     private String prenom;
+
+    @Basic
+    @Column(name = "LOGIN")
     private String login;
+
+    @Basic
+    @Column(name = "MDP")
     private String mdp;
 
     @OneToMany(mappedBy = "utilisateur")
@@ -47,8 +59,6 @@ public class Utilisateur implements Serializable {
         this.prenom = "inconnu";
     }
 
-    @Id
-    @Column(name = "ID")
     public long getId() {
         return id;
     }
@@ -57,8 +67,6 @@ public class Utilisateur implements Serializable {
         this.id = id;
     }
 
-    @Basic
-    @Column(name = "NOM")
     public String getNom() {
         return nom;
     }
@@ -67,8 +75,6 @@ public class Utilisateur implements Serializable {
         this.nom = nom;
     }
 
-    @Basic
-    @Column(name = "PRENOM")
     public String getPrenom() {
         return prenom;
     }
@@ -77,8 +83,6 @@ public class Utilisateur implements Serializable {
         this.prenom = prenom;
     }
 
-    @Basic
-    @Column(name = "LOGIN")
     public String getLogin() {
         return login;
     }
@@ -87,8 +91,6 @@ public class Utilisateur implements Serializable {
         this.login = login;
     }
 
-    @Basic
-    @Column(name = "MDP")
     public String getMdp() {
         return mdp;
     }
@@ -114,4 +116,23 @@ public class Utilisateur implements Serializable {
         return Objects.hash(id, nom, prenom, login, mdp);
     }
 
+    public List<Musique> getMusiqueList() {
+        return musiqueList;
+    }
+
+//    public  List<Musique> getPublicMusiqueList(){
+//        List<Musique> listPublic = new ArrayList<>();
+//
+//        for (Musique musique :musiqueList) {
+//            if (musique.getVisible().equals("Y")) {
+//                listPublic.add(musique);
+//            }
+//        }
+//
+//        return listPublic;
+//    }
+
+    public void setMusiqueList(List<Musique> musiqueList) {
+        this.musiqueList = musiqueList;
+    }
 }

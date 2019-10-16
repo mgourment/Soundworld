@@ -17,4 +17,5 @@ public class MusiqueDAO {
         Query requete = em.createQuery("select p from Musique p");
         return requete.getResultList();
     }
+
 }

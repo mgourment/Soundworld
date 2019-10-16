@@ -1,25 +1,37 @@
 package musique;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import utilisateur.Utilisateur;
+
+import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
 public class Musique {
-    private long idM;
-    private String titre;
-    private String artiste;
-    private Long duree;
-    private String visible;
-
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "id_m")
-    private Utilisateur utilisateur;
 
     @Id
     @Column(name = "ID_M")
+    private long idM;
+
+    @Basic
+    @Column(name = "TITRE")
+    private String titre;
+
+    @Basic
+    @Column(name = "ARTISTE")
+    private String artiste;
+
+    @Basic
+    @Column(name = "DUREE")
+    private Long duree;
+
+    @Basic
+    @Column(name = "VISIBLE")
+    private String visible;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "PROPRIETAIRE")
+    private Utilisateur utilisateur;
+
     public long getIdM() {
         return idM;
     }
@@ -28,8 +40,6 @@ public class Musique {
         this.idM = idM;
     }
 
-    @Basic
-    @Column(name = "TITRE")
     public String getTitre() {
         return titre;
     }
@@ -38,8 +48,6 @@ public class Musique {
         this.titre = titre;
     }
 
-    @Basic
-    @Column(name = "ARTISTE")
     public String getArtiste() {
         return artiste;
     }
@@ -48,8 +56,6 @@ public class Musique {
         this.artiste = artiste;
     }
 
-    @Basic
-    @Column(name = "DUREE")
     public Long getDuree() {
         return duree;
     }
@@ -74,8 +80,6 @@ public class Musique {
         return Objects.hash(idM, titre, artiste, duree);
     }
 
-    @Basic
-    @Column(name = "VISIBLE")
     public String getVisible() {
         return visible;
     }
