@@ -1,20 +1,18 @@
 package musique;
 
-import utilisateur.Utilisateur;
-
-import javax.enterprise.context.SessionScoped;
-import javax.persistence.*;
-import java.io.Serializable;
-import java.util.List;
+import javax.persistence.Basic;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.util.Objects;
 
 @Entity
-@Table(name = "musique")
-public class Musique{
+public class Musique {
     private long idM;
     private String titre;
     private String artiste;
     private Long duree;
+    private String visible;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_m")
@@ -76,5 +74,13 @@ public class Musique{
         return Objects.hash(idM, titre, artiste, duree);
     }
 
+    @Basic
+    @Column(name = "VISIBLE")
+    public String getVisible() {
+        return visible;
+    }
 
+    public void setVisible(String visible) {
+        this.visible = visible;
+    }
 }
