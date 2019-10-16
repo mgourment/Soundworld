@@ -21,13 +21,13 @@ public class UtilisateurControler implements Serializable{
         if(utilisateur.getLogin().length() != 0 && utilisateur.getMdp().length() != 0) {
             boolean exist = false;
             Utilisateur U= dao.find(utilisateur);
-//            if (U != null) {
-//                exist = true;
-//            }
-//
-//            if (exist) {
-//                utilisateur = U;
-//            }
+            if (U != null) {
+                exist = true;
+            }
+
+            if (exist) {
+                utilisateur = U;
+            }
             return "pageUtilisateur";
         }
         return "index";
