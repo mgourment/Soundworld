@@ -28,7 +28,7 @@ public class UtilisateurControler implements Serializable{
             if (exist) {
                 utilisateur = U;
             }
-            return "pageUtilisateur";
+            return "home";
         }
         return "index";
     }
