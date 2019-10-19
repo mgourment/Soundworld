@@ -32,6 +32,10 @@ public class Musique {
     @JoinColumn(name = "PROPRIETAIRE")
     private Utilisateur utilisateur;
 
+    public Utilisateur getUtilisateur() {
+        return utilisateur;
+    }
+
     public long getIdM() {
         return idM;
     }

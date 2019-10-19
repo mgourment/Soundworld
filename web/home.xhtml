@@ -10,7 +10,7 @@
         <h:outputLabel value="Hello #{utilisateurControler.utilisateur.nom}"/>
 
         <h:dataTable value="#{musiqueControler.tous()}" var="ligne">
-            <h:column>#{ligne.idM} #{ligne.titre} #{ligne.artiste} #{ligne.duree} </h:column>
+            <h:column>#{ligne.idM} #{ligne.titre} #{ligne.artiste} #{ligne.duree} #{ligne.utilisateur.nom}</h:column>
         </h:dataTable>
 
         <br/><br/>
