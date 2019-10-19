@@ -33,6 +33,11 @@ public class UtilisateurControler implements Serializable{
         return "index";
     }
 
+    public String connexionVisiteur(){
+        utilisateur = new Utilisateur("visiteur", "visiteur");
+        return "visiteur";
+    }
+
     public Utilisateur getUtilisateur() {
         return utilisateur;
     }

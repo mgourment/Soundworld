@@ -68,6 +68,19 @@ public class Musique {
         this.duree = duree;
     }
 
+    public String getVisible() {
+        return visible;
+    }
+
+    public void setVisible(String visible) {
+        this.visible = visible;
+    }
+
+    public String pageUtilisateur(Utilisateur u){
+        utilisateur = u;
+        return "pageUtilisateur";
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -82,13 +95,5 @@ public class Musique {
     @Override
     public int hashCode() {
         return Objects.hash(idM, titre, artiste, duree);
-    }
-
-    public String getVisible() {
-        return visible;
-    }
-
-    public void setVisible(String visible) {
-        this.visible = visible;
     }
 }

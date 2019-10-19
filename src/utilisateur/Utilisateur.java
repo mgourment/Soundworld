@@ -1,10 +1,7 @@
 package utilisateur;
 
 import musique.Musique;
-import sun.rmi.log.LogInputStream;
 
-import javax.enterprise.context.SessionScoped;
-import javax.inject.Named;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.*;
@@ -62,7 +59,6 @@ public class Utilisateur implements Serializable {
     public long getId() {
         return id;
     }
-
     public void setId(long id) {
         this.id = id;
     }
@@ -70,7 +66,6 @@ public class Utilisateur implements Serializable {
     public String getNom() {
         return nom;
     }
-
     public void setNom(String nom) {
         this.nom = nom;
     }
@@ -78,7 +73,6 @@ public class Utilisateur implements Serializable {
     public String getPrenom() {
         return prenom;
     }
-
     public void setPrenom(String prenom) {
         this.prenom = prenom;
     }
@@ -86,7 +80,6 @@ public class Utilisateur implements Serializable {
     public String getLogin() {
         return login;
     }
-
     public void setLogin(String login) {
         this.login = login;
     }
@@ -95,9 +88,27 @@ public class Utilisateur implements Serializable {
     public String getMdp() {
         return mdp;
     }
-
     public void setMdp(String mdp) {
         this.mdp = mdp;
+    }
+
+    public List<Musique> getMusiqueList() {
+        return musiqueList;
+    }
+    public void setMusiqueList(List<Musique> musiqueList) {
+        this.musiqueList = musiqueList;
+    }
+
+    public  List<Musique> getPublicMusiqueList(){
+        List<Musique> listPublic = new ArrayList<>();
+
+        for (Musique musique :musiqueList) {
+            if (musique.getVisible().equals("Y")) {
+                listPublic.add(musique);
+            }
+        }
+
+        return listPublic;
     }
 
     @Override
@@ -117,23 +128,4 @@ public class Utilisateur implements Serializable {
         return Objects.hash(id, nom, prenom, login, mdp);
     }
 
-    public List<Musique> getMusiqueList() {
-        return musiqueList;
-    }
-
-//    public  List<Musique> getPublicMusiqueList(){
-//        List<Musique> listPublic = new ArrayList<>();
-//
-//        for (Musique musique :musiqueList) {
-//            if (musique.getVisible().equals("Y")) {
-//                listPublic.add(musique);
-//            }
-//        }
-//
-//        return listPublic;
-//    }
-
-    public void setMusiqueList(List<Musique> musiqueList) {
-        this.musiqueList = musiqueList;
-    }
 }
