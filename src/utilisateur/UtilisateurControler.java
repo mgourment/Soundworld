@@ -11,7 +11,9 @@ import java.util.List;
 public class UtilisateurControler implements Serializable{
     @EJB
     UtilisateurDAO dao;
+
     private Utilisateur utilisateur = new Utilisateur();
+    private Utilisateur utilisateurConsulte = new Utilisateur();
 
     public List<Utilisateur> tous(){
         return dao.findAll();

@@ -8,14 +8,9 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <f:view>
         <h:outputLabel value="Hello #{utilisateurControler.utilisateur.nom}"/>
-
-        <h:dataTable value="#{musiqueControler.tous()}" var="ligne">
-            <h:column>#{ligne.idM} #{ligne.titre} #{ligne.artiste} #{ligne.duree} #{ligne.utilisateur.nom}</h:column>
-        </h:dataTable>
-
         <br/><br/>
         <h:outputLabel value="musique de #{utilisateurControler.utilisateur.prenom}"/>
-        <h:dataTable value="#{utilisateurControler.utilisateur.getMusiqueList()}" var="musique">
+        <h:dataTable value="#{utilisateurControler.utilisateur.getMusiqueList() }" var="musique">
             <h:column>
                 #{musique.titre}
             </h:column>
@@ -23,17 +18,9 @@
             <h:column>
                 #{musique.visible}
             </h:column>
-        </h:dataTable>
-
-        <br/><br/>
-        <h:outputLabel value="musique visible de #{utilisateurControler.utilisateur.prenom}"/>
-        <h:dataTable value="#{utilisateurControler.utilisateur.getPublicMusiqueList()}" var="musique">
-            <h:column>
-                #{musique.titre}
-            </h:column>
 
             <h:column>
-                #{musique.visible}
+                #{musique.artiste}
             </h:column>
         </h:dataTable>
 

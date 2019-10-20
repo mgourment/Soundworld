@@ -5,30 +5,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core" xml:lang="en" lang="en">
 <head>
-    <title>Title</title>
+    <title>page Visiteur</title>
 </head>
 <body>
-    <h:dataTable value="#{musiqueControler.tous()}" var="ligne" border="1">
-        <h:column>
-            <f:facet name = "header">id musique</f:facet>
-            #{ligne.idM}
-        </h:column>
-        <h:column>
-            <f:facet name = "header">titre</f:facet>
-            #{ligne.titre}
-        </h:column>
-        <h:column>
-            <f:facet name = "header">artiste</f:facet>
-            #{ligne.artiste}
-        </h:column>
-        <h:column>
-            <f:facet name = "header">durée (s)</f:facet>
-            #{ligne.duree}
-        </h:column>
-    </h:dataTable>
-
-    <br/><br/>
-
+<h1>Musique disponible</h1>
     <h:dataTable value="#{musiqueControler.musiquePublic()}" var="ligne" border="1">
         <h:column>
             <f:facet name = "header">id musique</f:facet>
@@ -48,7 +28,7 @@
         </h:column>
         <h:column>
             <f:facet name = "header">propriétaire</f:facet>
-            <h:link value="#{ligne.getUtilisateur().getNom()}" outcome="#{ligne.pageUtilisateur(ligne.getUtilisateur())}"/>
+            <h:link value="#{ligne.getUtilisateur().getNom()}" outcome="#{musiqueControler.pageUtilisateur(ligne.getUtilisateur())}"/>
         </h:column>
     </h:dataTable>
 </body>

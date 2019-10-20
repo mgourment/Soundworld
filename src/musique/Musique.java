@@ -76,11 +76,6 @@ public class Musique {
         this.visible = visible;
     }
 
-    public String pageUtilisateur(Utilisateur u){
-        utilisateur = u;
-        return "pageUtilisateur";
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

@@ -2,21 +2,33 @@
 <!DOCTYPE html
         PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xml:lang="en" lang="en">
-<head>
-    <title>Title</title>
-</head>
-<body>
-    heuu voila <br/>
-    <h:dataTable value="#{utilisateur.getPublicMusiqueList()}" var="musique">
-        <h:column>
-            #{musique.titre}
-        </h:column>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core"
+      xml:lang="en" lang="en">
+    <f:view>
+        heuu... voila <br/>
 
-        <h:column>
-            #{musique.visible}
-        </h:column>
-    </h:dataTable>
+        <h1>page de #{musiqueControler.utilisateurconsulte.prenom} #{musiqueControler.utilisateurconsulte.nom}</h1>
 
-</body>
+        <h:dataTable border="1" value="#{musiqueControler.utilisateurconsulte.getPublicMusiqueList()}" var="musique">
+            <h:column>
+                <f:facet name = "header">Titre</f:facet>
+                #{musique.titre}
+            </h:column>
+
+            <h:column>
+                <f:facet name = "header">Durée</f:facet>
+                #{musique.duree}
+            </h:column>
+
+            <h:column>
+                <f:facet name = "header">Artiste</f:facet>
+                #{musique.artiste}
+            </h:column>
+
+        </h:dataTable>
+        <h:form>
+            <h:commandButton value="retour" action="#{musiqueControler.utilisateurconsulte.connexionVisiteur()}"/>
+
+        </h:form>
+    </f:view>
 </html>

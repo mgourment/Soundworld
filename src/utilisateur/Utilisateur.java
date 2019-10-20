@@ -111,6 +111,10 @@ public class Utilisateur implements Serializable {
         return listPublic;
     }
 
+    public String connexionVisiteur(){
+        return "visiteur";
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

@@ -1,12 +1,10 @@
 package musique;
 
-
 import utilisateur.Utilisateur;
 
 import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
-import javax.swing.*;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,6 +14,8 @@ import java.util.List;
 public class MusiqueControler implements Serializable {
     @EJB
     MusiqueDAO dao;
+    private Musique musique = new Musique();
+    private Utilisateur utilisateurconsulte = new Utilisateur();
 
     public List<Musique> tous(){
         return dao.findAll();
@@ -33,4 +33,18 @@ public class MusiqueControler implements Serializable {
         }
         return listPublic;
     }
+
+    public Utilisateur getUtilisateurconsulte(){
+        return utilisateurconsulte;
+    }
+
+    public void setUtilisateur(Utilisateur u){
+        this.utilisateurconsulte = u;
+    }
+
+    public String pageUtilisateur(Utilisateur u){
+        utilisateurconsulte = u;
+        return "pageUtilisateur";
+    }
+
 }
