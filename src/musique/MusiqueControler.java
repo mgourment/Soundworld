@@ -47,4 +47,16 @@ public class MusiqueControler implements Serializable {
         return "pageUtilisateur";
     }
 
+    public void ajout(Musique musique){
+        dao.addMusique(musique);
+    }
+
+    public void remove(Musique musique){
+        dao.removeMusique(musique);
+    }
+
+    public void modify(Musique musique){
+        dao.modifyMusique(musique);
+    }
+
 }
